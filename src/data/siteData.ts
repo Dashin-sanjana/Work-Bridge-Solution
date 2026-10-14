@@ -33,23 +33,23 @@ export type Industry = {
 
 export const strengths = [
   {
-    title: "Trained Workforce",
+    title: "Cleaning Personnel",
     text: "Cleaning personnel supplied for professional business environments.",
     icon: Users
   },
   {
     title: "Flexible Staffing",
-    text: "Support for long-term, short-term, and temporary workforce needs.",
+    text: "Discuss long-term, short-term, and temporary workforce requirements.",
     icon: CalendarClock
   },
   {
-    title: "Reliable Coordination",
-    text: "Structured communication for smoother day-to-day operations.",
+    title: "Service Coordination",
+    text: "Clear communication during enquiry and service planning.",
     icon: ShieldCheck
   },
   {
-    title: "Quality Focus",
-    text: "A practical approach to cleanliness, presentation, and accountability.",
+    title: "Property Requirements",
+    text: "Attention to the cleanliness and presentation needs discussed for each property.",
     icon: BadgeCheck
   }
 ];
@@ -96,7 +96,7 @@ export const services: Service[] = [
     image:
       "/hospitality-hero.jpg",
     icon: BriefcaseBusiness,
-    benefits: ["Scalable staffing", "Reduced hiring overhead", "Workforce support aligned to your site"],
+    benefits: ["Staffing requirements discussion", "Role and responsibility planning", "Workforce support aligned to your site"],
     facilities: ["Commercial properties", "Managed facilities", "Retail spaces", "Mixed-use properties"]
   }
 ];
@@ -147,16 +147,16 @@ export const industries: Industry[] = [
 ];
 
 export const advantages = [
-  { title: "Vetted & Trained Staff", text: "Personnel selected for business environments.", icon: Users },
-  { title: "Professional Supervision", text: "Clear coordination and practical oversight.", icon: ClipboardCheck },
+  { title: "Business-Focused Personnel", text: "Cleaning personnel for business environments.", icon: Users },
+  { title: "Professional Service Coordination", text: "Clear communication and service coordination.", icon: ClipboardCheck },
   { title: "Scalable Workforce", text: "Manpower plans shaped around changing needs.", icon: Workflow },
-  { title: "Dependable Quality", text: "Steady focus on cleanliness and presentation.", icon: ShieldCheck },
-  { title: "Responsive Communication", text: "Prompt support during inquiry and planning.", icon: MessagesSquare }
+  { title: "Service Requirements", text: "Cleanliness and presentation priorities discussed for each site.", icon: ShieldCheck },
+  { title: "Direct Communication", text: "Direct contact channels for enquiry and planning.", icon: MessagesSquare }
 ];
 
 export const approach = [
   "Understand the property, operating hours, and staffing expectations.",
   "Recommend a suitable cleaning manpower arrangement.",
-  "Coordinate onboarding, role clarity, and supervision expectations.",
-  "Review communication, attendance, and quality concerns with the client."
+  "Discuss service requirements, role clarity, and onboarding arrangements.",
+  "Communicate about attendance and service-related concerns raised by the client."
 ];

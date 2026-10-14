@@ -9,7 +9,7 @@ export default function Industries() {
       <PageHeader
         eyebrow="Industries"
         title="Cleaning workforce solutions for managed properties"
-        text="Work Bridge Solution supports businesses and property managers whose facilities need dependable cleaning staff and practical coordination."
+        text="Work Bridge Solution supports businesses and property managers that are planning cleaning staff and service arrangements for their facilities."
       />
       <section className="section">
         <div className="container card-grid three">

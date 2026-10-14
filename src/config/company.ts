@@ -2,10 +2,9 @@ export const company = {
   name: "Work Bridge Solution (Pvt) Ltd",
   shortName: "Work Bridge Solution",
   domain: "workbridgesolution.com",
-  url: "https://workbridgesolution.com",
+  url: "https://www.workbridgesolution.com",
   email: "info@workbridgesolution.com",
-  phone: "",
-  whatsapp: "",
+  contactNumbers: ["+94 76 356 8325", "+94 77 618 0810"],
   addressLines: [
     "No. 47, Cross Road",
     "Kandegoda",

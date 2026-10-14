@@ -8,25 +8,33 @@ import Industries from "./pages/Industries";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
-
-const titles: Record<string, string> = {
-  "/": "Work Bridge Solution | Cleaning Manpower Supply Sri Lanka",
-  "/about": "About Work Bridge Solution | Commercial Cleaning Workforce",
-  "/services": "Cleaning Manpower Services | Work Bridge Solution",
-  "/industries": "Industries We Serve | Work Bridge Solution",
-  "/portfolio": "Our Capabilities | Work Bridge Solution",
-  "/contact": "Request a Quote | Work Bridge Solution",
-  "/privacy": "Privacy Policy | Work Bridge Solution"
-};
+import NotFound from "./pages/NotFound";
+import { getSEO, getSEOTags, isPublicRoute, normalizePath } from "./config/seo";
+import { getPageSchemas } from "./data/schema";
+import { servicePages } from "./data/servicePages";
+import ServiceDetail from "./pages/ServiceDetail";
 
 function MetaUpdater() {
   const location = useLocation();
   const previousPath = useRef(location.pathname);
 
   useEffect(() => {
-    document.title = titles[location.pathname] ?? titles["/"];
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = `https://workbridgesolution.com${location.pathname}`;
+    const seo = getSEO(location.pathname);
+    document.title = seo.title;
+    document.head.querySelectorAll("[data-seo]").forEach(tag => tag.remove());
+    getSEOTags(location.pathname).forEach(tag => {
+      const element = document.createElement("meta");
+      element.dataset.seo = "";
+      Object.entries(tag).forEach(([key, value]) => element.setAttribute(key, value));
+      document.head.append(element);
+    });
+    if (seo.canonical) {
+      const canonical = document.createElement("link");
+      canonical.dataset.seo = "";
+      canonical.rel = "canonical";
+      canonical.href = seo.canonical;
+      document.head.append(canonical);
+    }
   }, [location.pathname]);
 
   useEffect(() => {
@@ -44,18 +52,22 @@ function MetaUpdater() {
 }
 
 export default function App() {
+  const path = normalizePath(useLocation().pathname);
   return (
     <>
       <MetaUpdater />
+      {isPublicRoute(path) ? getPageSchemas(path).map(schema => <script key={schema["@id"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />) : null}
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          {servicePages.map(page => <Route key={page.path} path={page.path} element={<ServiceDetail page={page} />} />)}
           <Route path="/industries" element={<Industries />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>

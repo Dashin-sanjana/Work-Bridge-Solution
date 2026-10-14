@@ -8,5 +8,5 @@
     "noEmit": true,
     "strict": true
   },
-  "include": ["vite.config.ts", "eslint.config.js"]
+  "include": ["vite.config.ts", "eslint.config.js", "scripts/optimize-images.d.mts", "src/config/seo.ts", "src/config/company.ts", "src/data/servicePages.ts"]
 }

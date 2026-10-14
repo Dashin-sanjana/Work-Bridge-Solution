@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://workbridgesolution.com/sitemap.xml
+Sitemap: https://www.workbridgesolution.com/sitemap.xml
